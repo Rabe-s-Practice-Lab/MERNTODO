@@ -1,8 +1,8 @@
 import Todo from "../modals/todo.js";
 
-//@desc All Todos
-//@method GET
-//@route /todo/all
+// @desc Get All Todos
+// @route GET /todo/all
+// @acess Private
 const allTodos = async (req, res) => {
   try {
     const allTodos = await Todo.find();
@@ -12,9 +12,9 @@ const allTodos = async (req, res) => {
   }
 };
 
-//@desc Create todo
-//@method POST
-//@route /todo
+// @desc Create new todo
+// @route POST /todo
+// @acess Private
 const createTodo = async (req, res) => {
   try {
     console.log("req.body from create Todo", req.body);
@@ -38,9 +38,9 @@ const createTodo = async (req, res) => {
   }
 };
 
-//@desc Specific todo
-//@method GET
-//@route /todo/:id
+// @desc Get a todo
+// @route GET /todo/:id
+// @acess Private
 const singleTodo = async (req, res) => {
   try {
     const { id } = req.params;
@@ -55,9 +55,9 @@ const singleTodo = async (req, res) => {
   }
 };
 
-//@desc Update Todo
-//@method PUT
-//@route /todo/:id
+// @desc Update a Todo
+// @route UPDATE /todo/:id
+// @acess Private
 const updateTodo = async (req, res) => {
   try {
     const { id } = req.params;
@@ -87,9 +87,9 @@ const updateTodo = async (req, res) => {
   }
 };
 
-//@desc Remove a Todo
-//@method DELETE
-//@route /todo/:id
+// @desc Delete a Todo
+// @route DELETE /todo/:id
+// @acess Private
 const deleteTodo = async (req, res) => {
   try {
     const { id } = req.params;

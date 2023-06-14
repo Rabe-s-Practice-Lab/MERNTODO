@@ -2,9 +2,9 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import User from "../modals/user.js";
 
-//@desc register
-//@method POST
-//@route /auth/register
+// @desc Register new User
+// @route POST /auth/register
+// @acess Public
 const register = async (req, res) => {
   try {
     const { username, email, password, occupation } = req.body;
@@ -41,9 +41,9 @@ const register = async (req, res) => {
   }
 };
 
-//@desc login
-//@method POST
-//@route /auth/login
+// @desc Login
+// @route POST /auth/register
+// @acess Public
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
