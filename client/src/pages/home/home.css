@@ -1,12 +1,11 @@
 .home__wrapper {
   width: min(90%, 1200px);
   margin-inline: auto;
+  min-height: 100vh;
 }
 
 .hero__section {
   padding-block: 1em;
-
-  gap: 0.2em;
 }
 
 .hero__left {

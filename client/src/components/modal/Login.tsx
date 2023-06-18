@@ -5,7 +5,7 @@ import { useModal } from "../../hooks/useModal";
 
 const Login = () => {
   const inputRef = React.useRef<HTMLInputElement>(null);
-  const { setModalType } = useModal();
+  const { setModalType, modalType } = useModal();
 
   const [loginData, setLoginData] = React.useState<{
     email: string;
@@ -69,8 +69,8 @@ const Login = () => {
   */
 
   React.useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+    inputRef.current && inputRef.current?.focus();
+  }, [modalType]);
 
   return (
     <div className="form__container">

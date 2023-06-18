@@ -6,8 +6,9 @@ import UserIcon from "../../assets/icons/userIcon";
 import OccIcon from "../../assets/icons/occIcon";
 
 const SignUp = () => {
-  const inputRef = React.useRef<HTMLInputElement>(null);
-  const { setModalType } = useModal();
+  const userRef = React.useRef<HTMLInputElement>(null);
+
+  const { modalType, setModalType } = useModal();
 
   const [signUpData, setSignUpData] = React.useState<{
     username: string;
@@ -65,13 +66,13 @@ const SignUp = () => {
     }
   };
 
-  const hasData = Object.keys(signUpData).every(
-    (key) => signUpData[key as keyof typeof signUpData].trim() !== ""
-  );
+  const hasData = Object.keys(signUpData)
+    .slice(0, -1)
+    .every((key) => signUpData[key as keyof typeof signUpData].trim() !== "");
 
   React.useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+    userRef.current && userRef.current?.focus();
+  }, [modalType]);
 
   return (
     <div className="form__container">
@@ -85,7 +86,7 @@ const SignUp = () => {
               name="username"
               type="text"
               id="username"
-              ref={inputRef}
+              ref={userRef}
               value={signUpData.username}
               onChange={handleChange}
             />
@@ -120,7 +121,9 @@ const SignUp = () => {
           </div>
         </div>
         <div className="form__group">
-          <label htmlFor="occupation">Occupation</label>
+          <label htmlFor="occupation">
+            Occupation <span className="optional__label"> (opt.)</span>
+          </label>
           <div className="input__group">
             <OccIcon className="input__icon" />
             <input

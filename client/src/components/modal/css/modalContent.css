@@ -102,3 +102,22 @@
   cursor: pointer;
   color: var(--clr-primary);
 }
+
+.optional__label {
+  font-style: italic;
+}
+
+/*  */
+/* form {
+  animation: fade 0.4s linear forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fade {
+  from {
+    transform: translateX(-500px);
+  }
+  to {
+    transform: translate(0);
+  }
+} */

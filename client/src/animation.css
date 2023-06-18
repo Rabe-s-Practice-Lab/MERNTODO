@@ -61,3 +61,26 @@
     transform: translateY(min(100px, 5vh));
   }
 }
+
+/* auth modal */
+@keyframes showModal {
+  from {
+    opacity: 0;
+    top: -20px;
+  }
+  to {
+    opacity: 1;
+    top: 50%;
+  }
+}
+
+@keyframes hideModal {
+  from {
+    opacity: 1;
+    top: 50%;
+  }
+  to {
+    opacity: 0;
+    top: -20px;
+  }
+}

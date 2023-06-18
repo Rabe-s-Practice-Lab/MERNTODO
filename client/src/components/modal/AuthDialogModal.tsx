@@ -7,7 +7,7 @@ import "./css/modalContent.css";
 import "./css/AuthDialogModal.css";
 
 const AuthDialogModal = () => {
-  const { modalOpen, setModalOpen, modalType } = useModal();
+  const { modalOpen, setModalOpen, modalType, setModalType } = useModal();
 
   const modalRef = useRef<HTMLDialogElement>(null);
 
@@ -28,26 +28,50 @@ const AuthDialogModal = () => {
       const { current: el } = modalRef;
       if (target === el) {
         setModalOpen(false);
+        setModalType(null);
       }
     },
-    [setModalOpen]
+    [setModalOpen, setModalType]
   );
 
+  const onAnimEnd = useCallback(() => {
+    const { current: el } = modalRef;
+    if (!modalOpen) el?.close();
+  }, [modalOpen]);
+
   return (
-    <dialog ref={modalRef} onClick={onClick} className="auth__modal">
+    <dialog
+      ref={modalRef}
+      // for outside click
+      onClick={onClick}
+      // for esc key
+      onClose={() => {
+        setModalOpen(false);
+        setModalType(null);
+      }}
+      onAnimationEnd={onAnimEnd}
+      className={`auth__modal ${!modalOpen ? "auth__modal--closing" : null}`}
+    >
       <div className="auth__modal__content">
         {/* CLOSE BTN */}
         <div
           role="button"
           tabIndex={1}
           className="icon modal__close--btn"
-          onClick={() => setModalOpen(false)}
+          onClick={() => {
+            setModalOpen(false);
+            setModalType(null);
+          }}
         >
           <CloseIcon />
         </div>
 
         {/* CONTENT */}
-        {modalType === "login" ? <Login /> : <SignUp />}
+        {modalType === "login" ? (
+          <Login />
+        ) : modalType === "signup" ? (
+          <SignUp />
+        ) : null}
       </div>
     </dialog>
   );

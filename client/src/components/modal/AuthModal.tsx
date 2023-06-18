@@ -25,7 +25,11 @@ const AuthModal = () => {
         </div>
 
         {/* CONTENT */}
-        {modalType === "login" ? <Login /> : <SignUp />}
+        {modalType === "login" ? (
+          <Login />
+        ) : modalType === "signup" ? (
+          <SignUp />
+        ) : null}
       </div>
     </>
   );
