@@ -1,0 +1,51 @@
+.home__wrapper {
+  width: min(90%, 1200px);
+  margin-inline: auto;
+}
+
+.hero__section {
+  padding-block: 1em;
+
+  gap: 0.2em;
+}
+
+.hero__left {
+  flex-basis: 50%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 1.8em;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero__text {
+  font-size: clamp(1rem, 5vw, 1.4rem);
+}
+
+.hero__btn {
+  color: #fff;
+  font-weight: 800;
+  padding-block: 0.8em;
+}
+
+.hero__btn:hover {
+  border-radius: 1.6em;
+}
+
+.hero__right {
+  flex: 1;
+  flex-shrink: 0;
+}
+
+@media (min-width: 700px) {
+  .hero__section {
+    display: flex;
+  }
+}

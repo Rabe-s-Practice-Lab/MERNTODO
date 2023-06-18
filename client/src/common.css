@@ -1,0 +1,13 @@
+:root {
+  --clr-primary: hsl(356, 100%, 65%);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6em 1.9em;
+  background-color: var(--clr-primary);
+  cursor: pointer;
+  transition: 0.5s ease;
+  border-radius: 0.4em;
+  text-transform: capitalize;
+}

@@ -6,10 +6,12 @@ import {
   singleTodo,
   updateTodo,
   deleteTodo,
+  allTodosWithSpecificUser,
 } from "../controllers/todoController.js";
 import verifyToken from "../middleware/verifyJwtToken.js";
 
 router.get("/all", verifyToken, allTodos);
+router.get("/loggedUserTodos", verifyToken, allTodosWithSpecificUser);
 router.post("/", verifyToken, createTodo);
 router
   .route("/:id")

@@ -1,0 +1,39 @@
+.nav_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1.8em;
+}
+
+.nav__header {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.header__title .header__span {
+  color: var(--clr-primary);
+}
+
+.nav__btn--group {
+  display: flex;
+  align-items: center;
+  gap: 3em;
+}
+
+.btn--login {
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.btn--login:hover {
+  color: var(--clr-primary);
+}
+
+.btn--signup {
+  font-weight: 600;
+  color: #fff;
+}
+
+.btn--signup:hover {
+  border-radius: 1.6em;
+}
